@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { makeStyles} from '@mui/styles';
 import axios from 'axios';
 import { TrendingCoins } from '../../config/api';
 import { useContext } from 'react';
 import { CryptoContext } from '../../contexts/cryptoContext';
 import AliceCarousel from 'react-alice-carousel';
 import { Link } from 'react-router-dom';
+import { makeStyles } from '@mui/styles';
+
 const useStyles = makeStyles((theme)=>({
 
     carousel: {

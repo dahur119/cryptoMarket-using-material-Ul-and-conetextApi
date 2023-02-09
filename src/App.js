@@ -1,6 +1,6 @@
 import React from 'react';
  import Homepage from './pages/Homepage';
-
+import Alert from './components/Banner/Alert';
 import Header from './components/Header';
 import Coinpage from './pages/Coinpage';
 import { Routes, Route } from 'react-router-dom';
@@ -28,6 +28,7 @@ function App() {
         <Route path="/coins/:id" element={<Coinpage/>}/>
        
       </Routes>
+      <Alert/>
     </div>
   )
 

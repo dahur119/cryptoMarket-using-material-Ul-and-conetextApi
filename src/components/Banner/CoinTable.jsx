@@ -1,7 +1,7 @@
  import { current } from '@reduxjs/toolkit'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { CoinList } from '../../config/api'
+
 import { useContext } from 'react'
 import { CryptoContext } from '../../contexts/cryptoContext';
 import { createTheme, LinearProgress, Table, TableBody, TableContainer, TableHead, TableRow, TextField, TableCell, ThemeProvider, Pagination } from '@mui/material'
@@ -14,22 +14,22 @@ import { display, fontWeight } from '@mui/system'
 
 
 function CoinTable() {
-    const [coins, setCoins] = useState([])
-    const [loading, setLoading] = useState(false)
-    const {currency, symbol} = useContext(CryptoContext)
+    // const [coins, setCoins] = useState([])
+    // const [loading, setLoading] = useState(false)
+    const {currency, symbol, coins, loading, fetchCoins} = useContext(CryptoContext)
     const [page, setPage] = useState(1)
     const [search, setSearch] = useState("")
     const navigate = useNavigate();
 
-    const fetchCoins = async() => {
-        setLoading(true)
-        const {data} = await axios.get(CoinList(currency))
-        console.log(data)
-        setCoins(data)
-        setLoading(false)
+    // const fetchCoins = async() => {
+    //     setLoading(true)
+    //     const {data} = await axios.get(CoinList(currency))
+    //     console.log(data)
+    //     setCoins(data)
+    //     setLoading(false)
 
-    };
-    console.log("coinTable",coins)
+    // };
+    // console.log("coinTable",coins)
 
     useEffect(()=>{
         fetchCoins()

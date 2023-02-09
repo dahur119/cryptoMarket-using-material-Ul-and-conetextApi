@@ -7,6 +7,9 @@ import { useNavigate } from 'react-router-dom'
 import { red } from '@mui/material/colors';
 import { useContext } from 'react';
 import { CryptoContext } from '../contexts/cryptoContext';
+import AuthModel from './Auth/AuthModel';
+import UserSideBar from './Auth/UserSideBar';
+
 
 const useStyles = makeStyles(()=>({
     title:{
@@ -27,7 +30,7 @@ const useStyles = makeStyles(()=>({
 function Header() {
     const navigate = useNavigate();
 
-    const {currency,setCurrency } = useContext(CryptoContext)
+    const {currency,setCurrency, user } = useContext(CryptoContext)
     console.log(currency)
 
 
@@ -65,6 +68,8 @@ function Header() {
                     <MenuItem value={"USD"}> USD</MenuItem>
                     <MenuItem value={"NAIRA"}>Naira</MenuItem>
                 </Select>
+
+               { user ? <UserSideBar/> : <AuthModel/>} 
                 
 
                 
